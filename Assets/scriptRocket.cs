@@ -9,6 +9,8 @@ public class scriptRocket : MonoBehaviour
     public GameObject RocketGlassPrefab;
     private Rigidbody rigidbodyComponent;
 
+    public GameObject presente;
+
 
 
 
@@ -50,17 +52,34 @@ public class scriptRocket : MonoBehaviour
     }
 
 
-    public void unsnappedZone3() { 
+    public void unsnappedZone3() {
+        
+
         GameObject Rocket = GameObject.Find("boddy");
 
         var RocketRenderer = Rocket.GetComponent<Renderer>();
 
-       
         RocketRenderer.material.color = Color.white;
-        GameObject.Find("RocketBody").transform.localPosition = new Vector3(-2, 0,2);
-        rigidbodyComponent.velocity = new Vector3(-8, 0, 0);
+
+        //GameObject.Find("RocketBody").transform.localPosition = new Vector3(-2, 0,2);
 
 
+        rigidbodyComponent = GetComponent<Rigidbody>();
+        Debug.Log(rigidbodyComponent);
+
+        rigidbodyComponent.velocity = new Vector3(-12, 0, 0);
+
+
+    }
+
+
+    public void changeObject() 
+    {
+
+        Debug.Log("ENTREIIIII");
+        Instantiate(presente, GameObject.Find("RocketBody").transform.position, Quaternion.identity);
+        Destroy(GameObject.Find("RocketBody"));
+        
     }
 
 }
