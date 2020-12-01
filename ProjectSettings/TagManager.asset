@@ -8,6 +8,7 @@ TagManager:
   - Backpack
   - Robot
   - Gun
+  - Car
   layers:
   - Default
   - TransparentFX
