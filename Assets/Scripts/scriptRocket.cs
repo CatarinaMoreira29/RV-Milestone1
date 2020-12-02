@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class scriptRocket : MonoBehaviour
 {
@@ -9,7 +10,12 @@ public class scriptRocket : MonoBehaviour
     public GameObject RocketGlassPrefab;
     private Rigidbody rigidbodyComponent;
 
-    public GameObject presente;
+
+
+    public GameObject presenteF;
+
+
+    public GameObject prefab;
 
 
 
@@ -18,7 +24,7 @@ public class scriptRocket : MonoBehaviour
     void Start()
     {
         rigidbodyComponent = GetComponent<Rigidbody>();
-       
+
     }
 
     // Update is called once per frame
@@ -37,7 +43,7 @@ public class scriptRocket : MonoBehaviour
         
         RocketArmPrefab.transform.SetParent(GameObject.Find("RocketBody").transform);
         RocketArmPrefab.transform.localPosition = new Vector3(0, 0, 0);
-        rigidbodyComponent.velocity = new Vector3(-8, 0, 0);
+        rigidbodyComponent.velocity = new Vector3(-9, 0, 0);
 
     }
 
@@ -73,14 +79,54 @@ public class scriptRocket : MonoBehaviour
     }
 
 
+    private void goToEnd()
+    {
+        Debug.Log("entrei END");
+        rigidbodyComponent.velocity = new Vector3(-8, 0, 0);
+
+    }
+
     public void changeObject() 
     {
 
-        
-        Instantiate(presente, GameObject.Find("RocketBody").transform.position, Quaternion.identity);
-        Destroy(GameObject.Find("RocketBody"));
-        
+
+        //Instantiate(presenteF, GameObject.Find("RocketBody").transform.position, Quaternion.identity);
+        //  Destroy(GameObject.Find("RocketBody"));
+
+
+        rigidbodyComponent = GetComponent<Rigidbody>();
+        rigidbodyComponent.velocity = new Vector3(0, 0, -18);
+
+        Invoke("presente", 1);
+
+        Invoke("destroy", 1);
+
     }
+
+    private void destroy()
+    {
+
+        Destroy(GameObject.Find("RocketBody"));
+
+    }
+
+
+    public void presente()
+    {
+
+
+        Debug.Log("Presente");
+        var A = Instantiate(presenteF, GameObject.Find("RocketBody").transform.position, Quaternion.identity);
+        //A.transform.localPosition = new Vector3(-10, -0.7f, -3.8f);
+        
+        
+
+    }
+
+
+
+
+
 
 
 

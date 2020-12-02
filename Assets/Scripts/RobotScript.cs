@@ -6,6 +6,10 @@ public class RobotScript : MonoBehaviour
 {
     private Rigidbody rigidbodyComponent;
     private Transform transformComponent;
+
+    public GameObject presenteR;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +49,7 @@ public class RobotScript : MonoBehaviour
 
     private void goToEnd()
     {
+        Debug.Log("entrei END"); 
         rigidbodyComponent.velocity = new Vector3(-8, 0, 0);
 
     }
@@ -62,5 +67,45 @@ public class RobotScript : MonoBehaviour
         GameObject.Find("AssaultRifle").GetComponent<SkinnedMeshRenderer>().enabled = true;
 
     }
+
+    public void changeObject()
+    {
+
+        //Debug.Log("entrei change ROBOT!!!!!!!!!!!!"); 
+        //Instantiate(presenteR, GameObject.Find("Robot").transform.position, Quaternion.identity);
+        
+        //Destroy(GameObject.Find("Robot"));
+
+        rigidbodyComponent = GetComponent<Rigidbody>();
+        rigidbodyComponent.velocity = new Vector3(0, 0, -18);
+
+        Invoke("presente", 1);
+
+        Invoke("destroy", 1);
+
+
+
+    }
+
+
+
+    private void destroy()
+{
+
+    Destroy(GameObject.Find("Robot"));
+
+}
+
+
+public void presente()
+{
+
+
+    Debug.Log("Presente");
+    var A = Instantiate(presenteR, GameObject.Find("Robot").transform.position, Quaternion.identity);
+}
+
+
+
 
 }
