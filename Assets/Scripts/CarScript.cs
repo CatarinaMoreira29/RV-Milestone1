@@ -5,19 +5,18 @@ using UnityEngine;
 public class CarScript : MonoBehaviour
 {
     private Rigidbody rigidbodyComponent;
-    private Transform transformComponent;
 
     private Vector3 scaleChange;
 
     public GameObject presenteC;
-
+    public int count;
 
     // Start is called before the first frame update
     void Start()
     {
         //Find rigidbody
         rigidbodyComponent = GetComponent<Rigidbody>();
-        transformComponent = GetComponent<Transform>();
+        count = 0;
 
     }
 
@@ -50,17 +49,10 @@ public class CarScript : MonoBehaviour
     {
 
         GameObject car = GameObject.Find("body");
-
         var CarRenderer = car.GetComponent<Renderer>();
-
         CarRenderer.material.color = Color.white;
-
-        GameObject.Find("RocketBody").transform.localPosition = new Vector3(-2, 0,2);
-
-
         rigidbodyComponent = GetComponent<Rigidbody>();
         Invoke("goToFinish", 2f);
-
     }
 
     private void goToFinish()
@@ -72,8 +64,6 @@ public class CarScript : MonoBehaviour
 
     public void changeScale()
     {
-
-
         scaleChange = new Vector3(-0.2f, -0.2f, -0.2f);
         GameObject.Find("Police_car").transform.localScale += scaleChange;
 
@@ -81,41 +71,41 @@ public class CarScript : MonoBehaviour
 
     public void changeObject()
     {
-       
-        Debug.Log("entrei change Carro!!!!!!!!!!!!");
-
-        // var A = Instantiate(presenteC, GameObject.Find("Police_car").transform.position, Quaternion.identity);
-        //Destroy(GameObject.Find("Police_car"));
-        //GameObject.Find("PresenteC").GetComponent<presenteCarro>().embrulho();
-        
+               
         rigidbodyComponent = GetComponent<Rigidbody>();
         rigidbodyComponent.velocity = new Vector3(0, 0, -18);
-
         Invoke("presente", 1); 
-
         Invoke("destroy", 1);
-        
-        
-
     }
 
     private void destroy()
     {
 
-        Destroy(GameObject.Find("Police_car"));
-
+        GameObject.Find("roda1").GetComponent<SkinnedMeshRenderer>().enabled = false;
+        GameObject.Find("roda2").GetComponent<SkinnedMeshRenderer>().enabled = false;
+        GameObject.Find("roda3").GetComponent<SkinnedMeshRenderer>().enabled = false;
+        GameObject.Find("roda4").GetComponent<SkinnedMeshRenderer>().enabled = false;
+        GameObject car = GameObject.Find("body");
+        var CarRenderer = car.GetComponent<Renderer>();
+        CarRenderer.material.color = Color.blue;
+        scaleChange = new Vector3(0.2f, 0.2f, 0.2f);
+        GameObject.Find("Police_car").transform.localScale += scaleChange;
+        GameObject.Find("Police_car").GetComponent<Transform>().localPosition = new Vector3(0.118f, -0.317f, 14.416f);
     }
 
 
    public void presente()
     {
 
+        count++;
+        Instantiate(presenteC, GameObject.Find("Police_car").transform.position, Quaternion.identity);
+        GameObject.Find("CarText").GetComponent<TextMesh>().text = "Carro: " + count;
+        GameObject.Find("Total").GetComponent<updateTotal>().total += 1;
 
-        Debug.Log("Presente");
-        var A = Instantiate(presenteC, GameObject.Find("Police_car").transform.position, Quaternion.identity);
+
     }
 
-   
+
 
 
 }

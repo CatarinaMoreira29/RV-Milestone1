@@ -8,6 +8,7 @@ public class RobotScript : MonoBehaviour
     private Transform transformComponent;
 
     public GameObject presenteR;
+    public int count;
 
 
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class RobotScript : MonoBehaviour
         //Find rigidbody
         rigidbodyComponent = GetComponent<Rigidbody>();
         transformComponent = GetComponent<Transform>();
+        count = 0;
 
     }
 
@@ -49,63 +51,48 @@ public class RobotScript : MonoBehaviour
 
     private void goToEnd()
     {
-        Debug.Log("entrei END"); 
         rigidbodyComponent.velocity = new Vector3(-8, 0, 0);
 
     }
 
     public void addBackpack()
     {
-        Destroy(GameObject.Find("backpack"));
+        GameObject.Find("backpack").GetComponent<Transform>().localPosition = new Vector3(-17.892f, 0.603f, -4.288f);
+        GameObject.Find("backpack").GetComponent<Transform>().Rotate(0.053f, 180, 77.013f);
         GameObject.Find("Backpack1").GetComponent<SkinnedMeshRenderer>().enabled = true;
-
     }
 
-    public void addGun()
-    {
-        Destroy(GameObject.Find("Gun"));
-        GameObject.Find("AssaultRifle").GetComponent<SkinnedMeshRenderer>().enabled = true;
 
-    }
 
     public void changeObject()
     {
-
-        //Debug.Log("entrei change ROBOT!!!!!!!!!!!!"); 
-        //Instantiate(presenteR, GameObject.Find("Robot").transform.position, Quaternion.identity);
-        
-        //Destroy(GameObject.Find("Robot"));
-
         rigidbodyComponent = GetComponent<Rigidbody>();
         rigidbodyComponent.velocity = new Vector3(0, 0, -18);
-
         Invoke("presente", 1);
-
         Invoke("destroy", 1);
-
-
 
     }
 
 
 
     private void destroy()
-{
-
-    Destroy(GameObject.Find("Robot"));
-
-}
-
-
-public void presente()
-{
+    {
+        GameObject.Find("Backpack1").GetComponent<SkinnedMeshRenderer>().enabled = false;
+        GameObject.Find("Arm1").GetComponent<SkinnedMeshRenderer>().enabled = false;
+        GameObject.Find("head1").GetComponent<SkinnedMeshRenderer>().enabled = false;
+        GameObject.Find("Robot").GetComponent<Transform>().localPosition = new Vector3(0.6965637f, -0.05999994f, 7.32f);
+    }
 
 
-    Debug.Log("Presente");
-    var A = Instantiate(presenteR, GameObject.Find("Robot").transform.position, Quaternion.identity);
-}
+    public void presente()
+    {
+        count++;
+        Instantiate(presenteR, GameObject.Find("Robot").transform.position, Quaternion.identity);
+        GameObject.Find("RobotText").GetComponent<TextMesh>().text = "Robô: " + count;
+        GameObject.Find("Total").GetComponent<updateTotal>().total += 1;
 
 
+    }
 
 
 }
