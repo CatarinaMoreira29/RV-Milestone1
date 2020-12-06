@@ -55,6 +55,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
+     <Compile Include="Assets\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
+     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
+     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunShoot.cs" />
+     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
+     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
+     <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\CarScript.cs" />
      <Compile Include="Assets\Scripts\RobotScript.cs" />
      <Compile Include="Assets\Scripts\rotate.cs" />
@@ -433,6 +441,7 @@
      <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\TransparentFresnelBehind.shader" />
      <None Include="Assets\Mega Fantasy Props Pack\README.txt" />
      <None Include="Assets\Prespective Robot Pack\Readme\Readme Yaskawa\Readme Yaskawa ES200RD.txt" />
+     <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
      <None Include="Assets\Prespective Robot Pack\Readme\Readme Yaskawa\Readme Yaskawa MA2010.txt" />
      <None Include="Assets\Prespective Robot Pack\Readme\Readme Kuka\Readme Kuka KR120 R2500 pro.txt" />
  <Reference Include="UnityEngine">

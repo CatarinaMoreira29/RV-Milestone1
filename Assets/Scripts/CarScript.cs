@@ -70,12 +70,17 @@ public class CarScript : MonoBehaviour
         GameObject.Find("Police_car").transform.localScale += scaleChange;
 
     }
-
     public void changeObject()
+    {
+        Invoke("changeEffectObject", 2f);
+
+    }
+
+    public void changeEffectObject()
     {
                
         rigidbodyComponent = GetComponent<Rigidbody>();
-        rigidbodyComponent.velocity = new Vector3(0, 0, -18);
+        rigidbodyComponent.velocity = new Vector3(0, 0, -15f);
         Invoke("presente", 1); 
         Invoke("destroy", 1);
     }

@@ -45,7 +45,7 @@ public class scriptRocket : MonoBehaviour
 
     public void chamaCor()
     {
-        rigidbodyComponent.velocity = new Vector3(-6f, 0, 0);
+        rigidbodyComponent.velocity = new Vector3(-8f, 0, 0);
         Invoke("Cor", 4f);
     }
 
@@ -56,14 +56,18 @@ public class scriptRocket : MonoBehaviour
         var RocketRenderer = Rocket.GetComponent<Renderer>();
         RocketRenderer.material.color = Color.white;
         rigidbodyComponent = GetComponent<Rigidbody>();
-        rigidbodyComponent.velocity = new Vector3(-12, 0, 0);
+        rigidbodyComponent.velocity = new Vector3(-10f, 0, 0);
     }
-
-
     public void changeObject()
     {
+        Invoke("changeEffectObject", 2f);
+
+    }
+
+    public void changeEffectObject()
+    {
         rigidbodyComponent = GameObject.Find("RocketBody").GetComponent<Rigidbody>();
-        rigidbodyComponent.velocity = new Vector3(0, 0, -18);
+        rigidbodyComponent.velocity = new Vector3(0, 0, -15f);
         Invoke("presente", 1);
         Invoke("destroy", 1);
     }

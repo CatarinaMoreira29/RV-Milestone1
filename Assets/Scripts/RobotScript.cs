@@ -66,11 +66,16 @@ public class RobotScript : MonoBehaviour
 
     public void changeObject()
     {
-        rigidbodyComponent = GetComponent<Rigidbody>();
-        rigidbodyComponent.velocity = new Vector3(0, 0, -18);
-        Invoke("presente", 1);
-        Invoke("destroy", 1);
+        Invoke("changeEffect", 2f);
 
+    }
+
+    public void changeEffect()
+    {
+        rigidbodyComponent = GetComponent<Rigidbody>();
+        rigidbodyComponent.velocity = new Vector3(0, 0, -15f);
+        Invoke("presente", 2f);
+        Invoke("destroy", 2f);
     }
 
 
@@ -81,6 +86,7 @@ public class RobotScript : MonoBehaviour
         GameObject.Find("Arm1").GetComponent<SkinnedMeshRenderer>().enabled = false;
         GameObject.Find("head1").GetComponent<SkinnedMeshRenderer>().enabled = false;
         GameObject.Find("Robot").GetComponent<Transform>().localPosition = new Vector3(0.6965637f, -0.05999994f, 7.32f);
+        
     }
 
 

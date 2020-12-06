@@ -21,9 +21,9 @@ public class rotate : MonoBehaviour
         angles2.x += Time.deltaTime * 3;
         GameObject.Find("U_Axis_33").transform.rotation = Quaternion.Euler(angles2);
 
-        var angles3 = GameObject.Find("bracoAzul").transform.rotation.eulerAngles;
-        angles3.y += Time.deltaTime * 15;
-        GameObject.Find("bracoAzul").transform.rotation = Quaternion.Euler(angles3);
+        var angles3 = GameObject.Find("bracoRotativo").transform.rotation.eulerAngles;
+        angles3.y += Time.deltaTime * 20;
+        GameObject.Find("bracoRotativo").transform.rotation = Quaternion.Euler(angles3);
     }
     
 }

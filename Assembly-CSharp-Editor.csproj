@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
      <Compile Include="Assets\VRTK\Examples\ExampleResources\SharedResources\Scripts\Editor\VRTKExample_FixSetupEditor.cs" />
      <Compile Include="Assets\VRTK\Source\Editor\Attributes\MinMaxRangeDrawer.cs" />
      <Compile Include="Assets\VRTK\Source\Editor\Attributes\ObsoleteInspectorDrawer.cs" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\VRTK\Source\Editor\VRTK_SDKSetupEditor.cs" />
      <Compile Include="Assets\VRTK\Source\Editor\VRTK_SupportInfoWindow.cs" />
      <Compile Include="Assets\VRTK\Source\Editor\VRTK_UpdatePrompt.cs" />
+     <None Include="Assets\EffectExamples\Editor\PackageManagerAssembly\PackageImportList.txt" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Unity Vitual Reality/2019.4.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -272,6 +274,9 @@
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions">
  <HintPath>D:/Unity Vitual Reality/2019.4.13f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="PackageManagerAssembly">
+ <HintPath>C:/Users/josem/Desktop/RV-Milestone1/Assets/EffectExamples/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>C:/Users/josem/Desktop/RV-Milestone1/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
