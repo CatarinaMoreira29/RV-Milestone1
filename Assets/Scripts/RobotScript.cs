@@ -66,16 +66,16 @@ public class RobotScript : MonoBehaviour
 
     public void changeObject()
     {
-        Invoke("changeEffect", 2f);
+        Invoke("changeEffect", 1.5f);
 
     }
 
     public void changeEffect()
     {
         rigidbodyComponent = GetComponent<Rigidbody>();
-        rigidbodyComponent.velocity = new Vector3(0, 0, -15f);
-        Invoke("presente", 2f);
-        Invoke("destroy", 2f);
+        rigidbodyComponent.velocity = new Vector3(0, 0, -15);
+        Invoke("presente", 1);
+        Invoke("destroy", 1);
     }
 
 

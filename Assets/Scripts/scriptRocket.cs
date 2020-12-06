@@ -19,19 +19,19 @@ public class scriptRocket : MonoBehaviour
 
     public void chamasupport()
     {
-        rigidbodyComponent.velocity = new Vector3(-4f, 0, 0);
-        Invoke("addSupport", 4f);
+        rigidbodyComponent.velocity = new Vector3(-4, 0, 0);
+        Invoke("addSupport", 4);
     }
     //Add support rocket
     private void addSupport()
     {
-        rigidbodyComponent.velocity = new Vector3(-8f, 0, 0);
+        rigidbodyComponent.velocity = new Vector3(-8, 0, 0);
         GameObject.Find("Arm").GetComponent<MeshRenderer>().enabled = true;
     }
 
     public void chamaVidro()
     {
-        Invoke("addVidro", 2f);
+        Invoke("addVidro", 2);
     }
 
     //Add vidro
@@ -45,8 +45,8 @@ public class scriptRocket : MonoBehaviour
 
     public void chamaCor()
     {
-        rigidbodyComponent.velocity = new Vector3(-8f, 0, 0);
-        Invoke("Cor", 4f);
+        rigidbodyComponent.velocity = new Vector3(-8, 0, 0);
+        Invoke("Cor", 4);
     }
 
     //Muda a cor
@@ -56,18 +56,18 @@ public class scriptRocket : MonoBehaviour
         var RocketRenderer = Rocket.GetComponent<Renderer>();
         RocketRenderer.material.color = Color.white;
         rigidbodyComponent = GetComponent<Rigidbody>();
-        rigidbodyComponent.velocity = new Vector3(-10f, 0, 0);
+        rigidbodyComponent.velocity = new Vector3(-10, 0, 0);
     }
     public void changeObject()
     {
-        Invoke("changeEffectObject", 2f);
+        Invoke("changeEffectObject", 1.5f);
 
     }
 
     public void changeEffectObject()
     {
         rigidbodyComponent = GameObject.Find("RocketBody").GetComponent<Rigidbody>();
-        rigidbodyComponent.velocity = new Vector3(0, 0, -15f);
+        rigidbodyComponent.velocity = new Vector3(0, 0, -15);
         Invoke("presente", 1);
         Invoke("destroy", 1);
     }

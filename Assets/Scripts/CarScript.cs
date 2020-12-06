@@ -23,11 +23,9 @@ public class CarScript : MonoBehaviour
     public void goToAddRodas()
     {
         //Add velocity
-        rigidbodyComponent.velocity = new Vector3(-7f, 0, 0);
-// Quaternion rotZ270 = Quaternion.Euler(0, 0, 270);
-// rigidbodyComponent.MoveRotation(rotZ270 * rigidbodyComponent.rotation);
+        rigidbodyComponent.velocity = new Vector3(-7, 0, 0);
         //Timer 
-        Invoke("addRodas", 4f);
+        Invoke("addRodas", 4);
     }
 
     private void addRodas()
@@ -43,8 +41,8 @@ public class CarScript : MonoBehaviour
 
     public void chamaPintar()
     {
-        rigidbodyComponent.velocity = new Vector3(-7f, 0, 0);
-        Invoke("pintar", 4f);
+        rigidbodyComponent.velocity = new Vector3(-7, 0, 0);
+        Invoke("pintar", 4);
     }
 
     public void pintar()
@@ -54,7 +52,7 @@ public class CarScript : MonoBehaviour
         var CarRenderer = car.GetComponent<Renderer>();
         CarRenderer.material.color = Color.white;
         rigidbodyComponent = GetComponent<Rigidbody>();
-        Invoke("goToFinish", 2f);
+        Invoke("goToFinish", 2);
     }
 
     private void goToFinish()
@@ -72,7 +70,7 @@ public class CarScript : MonoBehaviour
     }
     public void changeObject()
     {
-        Invoke("changeEffectObject", 2f);
+        Invoke("changeEffectObject", 1);
 
     }
 
@@ -80,7 +78,7 @@ public class CarScript : MonoBehaviour
     {
                
         rigidbodyComponent = GetComponent<Rigidbody>();
-        rigidbodyComponent.velocity = new Vector3(0, 0, -15f);
+        rigidbodyComponent.velocity = new Vector3(0, 0, -15);
         Invoke("presente", 1); 
         Invoke("destroy", 1);
     }
