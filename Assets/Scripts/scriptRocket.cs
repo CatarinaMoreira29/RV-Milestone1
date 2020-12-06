@@ -16,17 +16,26 @@ public class scriptRocket : MonoBehaviour
         rigidbodyComponent = GetComponent<Rigidbody>();
         count = 0;
     }
-    //Add support rocket
-    public void unsnappedZone()
-    {
-        GameObject.Find("Arm").GetComponent<MeshRenderer>().enabled = true;
-        rigidbodyComponent.velocity = new Vector3(-8, 0, 0);
 
+    public void chamasupport()
+    {
+        rigidbodyComponent.velocity = new Vector3(-4f, 0, 0);
+        Invoke("addSupport", 4f);
+    }
+    //Add support rocket
+    private void addSupport()
+    {
+        rigidbodyComponent.velocity = new Vector3(-8f, 0, 0);
+        GameObject.Find("Arm").GetComponent<MeshRenderer>().enabled = true;
     }
 
+    public void chamaVidro()
+    {
+        Invoke("addVidro", 2f);
+    }
 
     //Add vidro
-    public void unsnappedZone2()
+    private void addVidro()
     {
          GameObject.Find("nute").GetComponent<MeshRenderer>().enabled = true;
          GameObject.Find("win-frem").GetComponent<MeshRenderer>().enabled = true;
@@ -34,8 +43,14 @@ public class scriptRocket : MonoBehaviour
 
     }
 
+    public void chamaCor()
+    {
+        rigidbodyComponent.velocity = new Vector3(-6f, 0, 0);
+        Invoke("Cor", 4f);
+    }
+
     //Muda a cor
-    public void unsnappedZone3()
+    private void Cor()
     {
         GameObject Rocket = GameObject.Find("boddy");
         var RocketRenderer = Rocket.GetComponent<Renderer>();
@@ -44,12 +59,6 @@ public class scriptRocket : MonoBehaviour
         rigidbodyComponent.velocity = new Vector3(-12, 0, 0);
     }
 
-
-    private void goToEnd()
-    {
-        rigidbodyComponent.velocity = new Vector3(-8, 0, 0);
-
-    }
 
     public void changeObject()
     {

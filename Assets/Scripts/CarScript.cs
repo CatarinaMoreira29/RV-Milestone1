@@ -24,6 +24,8 @@ public class CarScript : MonoBehaviour
     {
         //Add velocity
         rigidbodyComponent.velocity = new Vector3(-7f, 0, 0);
+// Quaternion rotZ270 = Quaternion.Euler(0, 0, 270);
+// rigidbodyComponent.MoveRotation(rotZ270 * rigidbodyComponent.rotation);
         //Timer 
         Invoke("addRodas", 4f);
     }

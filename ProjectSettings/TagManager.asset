@@ -9,6 +9,7 @@ TagManager:
   - Robot
   - Gun
   - Car
+  - braco
   layers:
   - Default
   - TransparentFX
